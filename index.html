@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript-DOM</title>
+
+
+
+</head>
+
+<body>
+  <p id="currentTime"></p>
+  <button onclick="showAlert()">Show Alert</button>
+  <button onclick="cancelAlert()">Cancel Alert</button>
+  <button onclick="stopTimer()">Stop Timer</button>
+
+
+  <script>
+    var timerInterval;
+    var alertTimeout;
+
+    timerInterval = setInterval(displayCurrentTime, 1000);
+
+    function displayCurrentTime() {
+      var currentTime = new Date();
+      var timeElement = document.getElementById("currentTime");
+      timeElement.innerHTML = currentTime.toLocaleTimeString();
+    }
+
+    function showAlert() {
+      alertTimeout = setTimeout(function () {
+        alert("Alert after 2 seconds!");
+      }, 2000);
+    }
+
+    function cancelAlert() {
+      clearTimeout(alertTimeout);
+    }
+
+
+    function stopTimer() {
+      clearInterval(timerInterval);
+    }
+
+
+
+  </script>
+</body>
+
+</html>
